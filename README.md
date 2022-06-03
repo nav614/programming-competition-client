@@ -1,8 +1,8 @@
 # Web Client for Programming Competition Game
 
-## Available Scripts
+**CHANGE `REACT_APP_WEBAPI_URL` to your webapi address in `.env`**
 
-** CHANGE `REACT_APP_WEBAPI_URL` to your webapi address in `.env`**
+## Available Scripts
 
 In the project directory, you can run:
 
