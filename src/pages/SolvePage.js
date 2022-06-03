@@ -100,7 +100,7 @@ export const SolvePage = () => {
                             ]}
                         >
                             <TextArea
-                                rows={6}
+                                rows={10}
                             />
                         </Form.Item>
                     }

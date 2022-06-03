@@ -1,6 +1,8 @@
-import { Card, Table } from 'antd';
+import { Card, Table, Typography } from 'antd';
 import React, { useEffect, useState } from 'react'
 import { useHttp } from '../hooks/http.hook';
+
+const { Title } = Typography;
 
 const columns = [
     {
@@ -25,13 +27,11 @@ export const TopThreePage = () => {
     const { request, loading } = useHttp();
 
     useEffect(() => {
-
         const fetchTopThree = async () => {
             try {
                 const response = await request('/api/CompletedTasks/topthree', 'GET');
                 setDataSource(response);
             } catch (error) { }
-
         }
 
         fetchTopThree();
@@ -44,7 +44,8 @@ export const TopThreePage = () => {
                 columns={columns}
                 loading={loading}
                 pagination={false}
-
+                title={() => <Title level={5}>TOP 3 Users</Title>}
             />
-        </Card>)
+        </Card>
+    )
 }

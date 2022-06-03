@@ -1,9 +1,8 @@
 @import '~antd/dist/antd.css';
 
-
 .menuBar {
   background-color: #50acff !important;
-  padding: 0 40px;
+  padding: 2px 40px;
   overflow: auto;
 }
 
@@ -18,17 +17,20 @@
   min-width: 245px;
   float: left;
 }
+
 .mainMenu button{
   color: #fff ;
 }
+
 .mainMenu li{
   background-color: #50acff !important;
 }
 
 .userLogo{
   float:right;
-  margin: 10px;
+  margin:10px;
 }
+
 .logoutButton button{
   color: #fff;
   margin: 5px;

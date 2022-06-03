@@ -38,7 +38,7 @@ export const useSolve = (form) => {
                 return {
                     ...state,
                     taskDetailsId: '',
-
+                    statusCode: 0,
                     taskItemId: action.payload,
                     description: state.tasks.find(({ taskItemId }) => taskItemId === action.payload)?.description
                 };
@@ -65,6 +65,7 @@ export const useSolve = (form) => {
                 throw new Error();
         }
     }
+
     const [state, dispatch] = useReducer(reducer, initialState);
 
     const fetchTasks = useCallback(async () => {
