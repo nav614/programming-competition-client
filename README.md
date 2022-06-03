@@ -1,5 +1,7 @@
 # Web Client for Programming Competition Game
 
+![Screen Recording 2022-06-03 at 18 18 11](https://user-images.githubusercontent.com/48523627/171906763-1d9bee2a-eb8f-4aa4-9005-69e8c5b9d1fa.gif)
+
 **CHANGE `REACT_APP_WEBAPI_URL` to your webapi address in `.env`**
 
 ## Available Scripts
