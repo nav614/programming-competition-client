@@ -6,17 +6,17 @@ const { Title } = Typography;
 
 const columns = [
     {
-        title: 'User',
+        title: 'Name',
         dataIndex: 'username',
         key: 'username',
     },
     {
-        title: 'Score',
+        title: 'Success solutions',
         dataIndex: 'score',
         key: 'score',
     },
     {
-        title: 'Task',
+        title: 'Tasks',
         dataIndex: 'completedTasks',
         key: 'completedTasks',
     },
@@ -44,7 +44,7 @@ export const TopThreePage = () => {
                 columns={columns}
                 loading={loading}
                 pagination={false}
-                title={() => <Title level={5}>TOP 3 Users</Title>}
+                title={() => <Title level={5}>TOP 3 Players</Title>}
             />
         </Card>
     )
