@@ -1,4 +1,4 @@
-# Web Client for Programming Competition Game
+# Web Client for Programming Competition Game v0.1.1
 
 ![Screen Recording 2022-06-03 at 18 18 11](https://user-images.githubusercontent.com/48523627/171906763-1d9bee2a-eb8f-4aa4-9005-69e8c5b9d1fa.gif)
 
