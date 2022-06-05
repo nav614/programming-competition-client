@@ -1,3 +1,4 @@
+import { Spin } from 'antd';
 import { BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
 import { Navbar } from './components/Navbar';
@@ -7,7 +8,7 @@ import { useRoutes } from './routes';
 
 
 function App() {
-  const { login, logout, token, userId, userName } = useAuth();
+  const { login, logout, token, userId, userName, loading } = useAuth();
   const isAuthenticated = !!token;
   const routes = useRoutes(isAuthenticated);
 
@@ -20,12 +21,13 @@ function App() {
       userName,
       isAuthenticated
     }}>
-      <Router>
+      {!loading && <Router>
         {isAuthenticated && <Navbar />}
         <div className='container'>
           {routes}
         </div>
       </Router>
+      }
     </AuthContext.Provider>
   );
 }

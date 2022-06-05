@@ -22,6 +22,7 @@ export const useSolve = (form) => {
         taskDetailsId: '',
         expected: '',
         isCompleted: false,
+        input: '',
         output: '',
         statusCode: 0
     };
@@ -52,7 +53,10 @@ export const useSolve = (form) => {
                 return {
                     ...state,
                     taskDetailsId: action.payload.taskDetailsId,
-                    expected: action.payload.expected
+                    expected: action.payload.expected,
+                    input: action.payload.input,
+                    statusCode: 0
+
                 }
             case TASK_IS_COMPILED:
                 return {
@@ -98,7 +102,7 @@ export const useSolve = (form) => {
 
     const handleOnSelectLanguage = (lang) => {
         const taskDetails = state.taskDetails.find(({ language }) => language === lang);
-        dispatch({ type: TASK_DETAILS_SELECTED, payload: { taskDetailsId: taskDetails.taskDetailsId, expected: taskDetails.output } });
+        dispatch({ type: TASK_DETAILS_SELECTED, payload: { taskDetailsId: taskDetails.taskDetailsId, expected: taskDetails.output, input: taskDetails.input } });
         form.setFieldsValue({ script: taskDetails.userScript });
     }
 
@@ -115,6 +119,7 @@ export const useSolve = (form) => {
             }
             const { isCompleted, output, statusCode } = await request('/api/Compile/run', 'POST', taskToCompile);
             dispatch({ type: TASK_IS_COMPILED, payload: { isCompleted, output, statusCode } });
+            form.setFieldsValue({ output });
             if (isSumbit) {
                 message.success('Solution submitted.')
             }

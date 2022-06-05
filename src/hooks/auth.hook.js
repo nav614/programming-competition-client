@@ -7,12 +7,14 @@ export const useAuth = () => {
     const [userId, setUserId] = useState(null);
     const [userRole, setUserRole] = useState(null);
     const [userName, setUserName] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     const login = useCallback((jwtToken, id, userName, role) => {
         setToken(jwtToken);
         setUserId(id);
         setUserName(userName);
         setUserRole(role);
+        setLoading(false);
 
         localStorage.setItem(storageName, JSON.stringify({
             token: jwtToken,
@@ -38,5 +40,5 @@ export const useAuth = () => {
         }
     }, [login]);
 
-    return { login, logout, token, userId, userRole, userName };
+    return { login, logout, token, userId, userRole, userName, loading };
 }

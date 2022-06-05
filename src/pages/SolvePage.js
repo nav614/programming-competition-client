@@ -50,10 +50,10 @@ export const SolvePage = () => {
                                 SUBMIT
                             </Button>
                             {state.statusCode !== 0 &&
-                                (state.isCompleted ?
-                                    <Alert message="Completed" type="success" showIcon />
-                                    : <Alert message="Is not completed" type="error" showIcon />)
-
+                                <Alert
+                                    message={state.isCompleted ? "Completed" : "Is not completed"}
+                                    type={state.isCompleted ? "success" : "error"}
+                                    showIcon />
                             }
                         </Space>
                     </Form.Item>
@@ -108,6 +108,12 @@ export const SolvePage = () => {
                         state.statusCode !== 0 && (
                             <>
                                 <Form.Item
+                                    label="INPUT"
+                                    name="input"
+                                >
+                                    <Text>{state.input}</Text>
+                                </Form.Item>
+                                <Form.Item
                                     label="EXPECTED"
                                     name="expected"
                                 >
@@ -117,7 +123,7 @@ export const SolvePage = () => {
                                     label="YOUR RESULT"
                                     name="output"
                                 >
-                                    <Text>{state.output}</Text>
+                                    <TextArea rows={3} readOnly />
                                 </Form.Item>
                             </>
                         )
