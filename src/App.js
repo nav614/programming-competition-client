@@ -10,7 +10,7 @@ import { useRoutes } from './routes';
 function App() {
   const { login, logout, token, userId, userName, loading } = useAuth();
   const isAuthenticated = !!token;
-  const routes = useRoutes(isAuthenticated);
+  const routes = useRoutes(isAuthenticated, loading);
 
   return (
     <AuthContext.Provider value={{
@@ -21,13 +21,12 @@ function App() {
       userName,
       isAuthenticated
     }}>
-      {!loading && <Router>
+      <Router>
         {isAuthenticated && <Navbar />}
         <div className='container'>
           {routes}
         </div>
       </Router>
-      }
     </AuthContext.Provider>
   );
 }

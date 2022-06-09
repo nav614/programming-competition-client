@@ -14,7 +14,6 @@ export const useAuth = () => {
         setUserId(id);
         setUserName(userName);
         setUserRole(role);
-        setLoading(false);
 
         localStorage.setItem(storageName, JSON.stringify({
             token: jwtToken,
@@ -34,10 +33,12 @@ export const useAuth = () => {
         }, []);
 
     useEffect(() => {
+        setLoading(true);
         const data = JSON.parse(localStorage.getItem(storageName));
         if (data && data.token) {
             login(data.token, data.userId, data.userName, data.userRole);
         }
+        setLoading(false);
     }, [login]);
 
     return { login, logout, token, userId, userRole, userName, loading };

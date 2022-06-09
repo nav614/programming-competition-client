@@ -4,7 +4,7 @@ import { AuthPage } from './pages/AuthPage';
 import { SolvePage } from './pages/SolvePage';
 import { TopThreePage } from './pages/TopThreePage';
 
-export const useRoutes = isAuthenticated => {
+export const useRoutes = (isAuthenticated, loading) => {
     if (isAuthenticated) {
         return (
             <Routes>
@@ -15,10 +15,12 @@ export const useRoutes = isAuthenticated => {
             </Routes>
         )
     }
-    return (
-        <Routes>
-            <Route path='/' element={<AuthPage />} />
-            <Route path='*' element={<AuthPage />} />
-        </Routes>
-    )
+    if (!loading) {
+        return (
+            <Routes>
+                <Route path='/' element={<AuthPage />} />
+                <Route path='*' element={<AuthPage />} />
+            </Routes>
+        )
+    }
 }
